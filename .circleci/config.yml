@@ -4,16 +4,16 @@ orbs:
   docker: circleci/docker@1.0.0
 jobs:
   deploy:
-  executor: heroku/default
-  steps:
-    - checkout
-    - heroku/install
-    - run:
-        name: Pushing to heroku registry
-        command: |
-          heroku container:login
-          heroku container:push web --arg NODE_ENV=production -a $HEROKU_APP_NAME
-          heroku container:release web -a $HEROKU_APP_NAME
+    executor: heroku/default
+    steps:
+      - checkout
+      - heroku/install
+      - run:
+          name: Pushing to heroku registry
+          command: |
+            heroku container:login
+            heroku container:push web --arg NODE_ENV=production -a $HEROKU_APP_NAME
+            heroku container:release web -a $HEROKU_APP_NAME
 workflows:
   heroku_deploy:
     jobs:
