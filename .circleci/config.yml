@@ -5,13 +5,11 @@ orbs:
 workflows:
   heroku_deploy:
     jobs:
-      - build
       - heroku/deploy-via-git:
-          requires:
-            - build
-          filters:
-            branches:
-              only: sequential-branch-filter
+          post-steps:
+            - run:  heroku container:release web
+          pre-steps:
+            - run: heroku container:push web     
   deploy:
     jobs:
       - docker/publish:
