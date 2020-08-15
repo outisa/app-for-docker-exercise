@@ -6,7 +6,7 @@ const App = () => {
   const [joke, setJoke] = useState(null);
   const getJoke = (event) => {
     event.preventDefault();
-    axios.get('http://api.icndb.com/jokes/random?limitTo=[nerdy]')
+    axios.get('https://api.icndb.com/jokes/random?limitTo=[nerdy]')
       .then(response => {
         console.log(response.data.value.joke)
         setJoke(response.data.value.joke);
