@@ -18,6 +18,7 @@ const App = () => {
       <p>Your joke is: </p>
       {joke ? <p> {joke} </p> : null}
       <button onClick={getJoke}>Press the button, get a joke!</button>
+      <p>Remember to laugh!</p>
     </div>
   );
 };
