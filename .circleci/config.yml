@@ -8,8 +8,9 @@ jobs:
     steps:
       - checkout
       - heroku/install
+      - setup_remote_docker:
+          version: 18.06.0-ce
       - run:
-          name: Pushing to heroku registry
           command: |
             heroku container:login
             heroku container:push web --arg NODE_ENV=production -a $HEROKU_APP_NAME
