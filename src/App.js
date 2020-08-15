@@ -15,7 +15,7 @@ const App = () => {
   return (
     <div className="App">
       <h2>Simple Chuck Norris -joke app</h2>
-      <p>Press the button to get a new nerdy Chuck Norris joke.</p>
+      <p>Your joke is: </p>
       {joke ? <p> {joke} </p> : null}
       <button onClick={getJoke}>Press the button, get a joke!</button>
     </div>
