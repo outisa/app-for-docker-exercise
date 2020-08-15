@@ -15,6 +15,7 @@ workflows:
                 heroku container:push -app $HEROKU_APP_NAME web
               command: > 
                 heroku container:release -app $HEROKU_APP_NAME web
+          - heroku/deploy-via-git          
   deploy:
     jobs:
       - docker/publish:
