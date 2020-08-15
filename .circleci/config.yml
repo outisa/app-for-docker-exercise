@@ -1,13 +1,22 @@
 version: 2.1
 orbs:
-  deploy-to-heroku: betterdoc/deploy-to-heroku@4.1.0
+  heroku: circleci/heroku@1.2.1
   docker: circleci/docker@1.0.0
 workflows:
+  heroku_deploy:
+    jobs:
+      - deploy:
+        executor: heroku/default
+        steps:
+          - checkout
+          - heroku/install
+          - run:
+              command: >
+                heroku container:push -app $HEROKU_APP_NAME web
+              command: > 
+                heroku container:release -app $HEROKU_APP_NAME web
   deploy:
     jobs:
       - docker/publish:
           image: outisa/docker-app-exercise15
           tag: 'latest'
-      - deploy-to-heroku:
-          app-name: 'jokeapp-for-docker-exercise'
-          app-type: 'web'
