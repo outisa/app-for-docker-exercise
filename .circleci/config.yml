@@ -16,6 +16,7 @@ jobs:
             heroku container:login
             heroku container:push --app $HEROKU_APP_NAME web
             heroku container:release --app $HEROKU_APP_NAME web
+            heroku container:logout
 workflows:
   heroku_deploy:
     jobs:
