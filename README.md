@@ -1,1 +1,1 @@
- This very simply project get a random nerdy Chuck Norris Joke if the button on is pushed. It was created because of one [docker course](https://devopswithdocker.com/) exercise. The jokes are fetched from [The Internet Chuck Norris Database](http://www.icndb.com/api/). 
+ This very simply project get a random nerdy Chuck Norris Joke if the button is pushed. It was created because of one [docker course](https://devopswithdocker.com/) exercise. The jokes are fetched from [The Internet Chuck Norris Database](http://www.icndb.com/api/). 
