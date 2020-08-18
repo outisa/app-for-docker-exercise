@@ -1,12 +1,20 @@
-FROM node:13.12.0
+FROM node:alpine as builder
 
 WORKDIR /app
-ENV PATH /app/node_modules/.bin:$PATH
 COPY  . ./
 
-RUN npm install \
-    && npm run build \
-    && npm install -g serve
+RUN npm install && \
+    npm run build && \
+    rm -rf /app/node_modules/*
+
+FROM node:alpine as app
+
+COPY --from=builder app .
+
+RUN npm install -g serve && \
+    adduser -D app
+
+USER app
 
 EXPOSE 5000
 CMD serve -s build
